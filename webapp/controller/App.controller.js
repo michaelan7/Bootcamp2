@@ -29,26 +29,10 @@ sap.ui.define([
 			this.getView().setModel(i18nModel, "i18n");
 
 		},
-		onLoginPress: function (oEvent) {
-			var oTextField = this.getView().byId("username");
-			var oPassField = this.getView().byId("password");
-			var user = oTextField.getValue();
-			var password = oPassField.getValue();
 
-			if (user === "michael") {
-				if (password === "test123") {
-					// read msg from i18n model
-					var oBundle = this.getView().getModel("i18n").getResourceBundle();
-					var sRecipient = this.getView().getModel().getProperty("/field/username");
-					var sMsg = oBundle.getText("helloMsg", [sRecipient]);
-					// show message
-					MessageToast.show(sMsg);
-				} else {
-					MessageToast.show("Incorrect Password!");
-				}
-			} else {
-				MessageToast.show("Invalid User!");
-			}
+		onOpenDialog: function () {
+			// this._getDialog().open();
+			this.getOwnerComponent().loginDialog.open(this.getView());
 		}
 	});
 });

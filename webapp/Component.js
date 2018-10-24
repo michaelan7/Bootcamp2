@@ -1,8 +1,9 @@
 sap.ui.define([
 	"sap/ui/core/UIComponent",
 	"sap/ui/Device",
-	"namespace/Bootcamp2/model/models"
-], function (UIComponent, Device, models) {
+	"namespace/Bootcamp2/model/models",
+	"namespace/Bootcamp2/controller/LoginDialog"
+], function (UIComponent, Device, models, LoginDialog) {
 	"use strict";
 
 	return UIComponent.extend("namespace.Bootcamp2.Component", {
@@ -25,6 +26,10 @@ sap.ui.define([
 
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
+
+			// set dialog by instantiating it
+			this.loginDialog = new LoginDialog();
+
 		}
 	});
 });
